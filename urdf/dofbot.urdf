@@ -17,8 +17,8 @@
             </geometry>
         </collision>
         <inertial>
-           <mass value="100"/>
-           <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.4"/>
+           <mass value="10"/>
+           <inertia ixx="8" ixy="0.0" ixz="0.0" iyy="4" iyz="0.0" izz="4"/>
         </inertial>
     </link>
     <link name="link1">
@@ -136,18 +136,18 @@
     <!-- link5 -->
     <link name="link5">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="-0.2 0.075 0.2" rpy="3.14 0 0"/>
             <geometry>
-                <mesh filename="package://robotic-arm-refuelling/meshes/link5.STL" scale="5 5 5" />
+                <mesh filename="package://robotic-arm-refuelling/meshes/injector.STL" scale="0.003 0.003 0.003" />
             </geometry>
             <material name="">
                 <color rgba="1 1 1 1" />
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="-0.2 0.075 0.2" rpy="3.14 0 0" />
             <geometry>
-                <mesh filename="package://robotic-arm-refuelling/meshes/link5.STL" scale="5 5 5" />
+                <mesh filename="package://robotic-arm-refuelling/meshes/injector.STL" scale="0.003 0.003 0.003" />
             </geometry>
         </collision>
         <inertial>
