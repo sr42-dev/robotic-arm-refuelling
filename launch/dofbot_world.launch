@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+        <arg name="world_name" value="$(find robotic-arm-refuelling)/worlds/city.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="0.1"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+
+    </include>
+
+    <group ns ="dofbot">
+
+        <param name="tf_prefix" value="dofbot_tf" />
+        <arg name="x_pos" default="0"/>
+        <arg name="y_pos" default="-1"/>
+        <arg name="z_pos" default="0.1"/>
+        <param name="robot_description" textfile="$(find robotic-arm-refuelling)/urdf/dofbot.urdf"/> 
+        <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+    
+    </group> 
+    
+    <node name="RSP" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+    <rosparam  file="$(find robotic-arm-refuelling)/config/joint_trajectory_controller.yaml"/>
+
+    <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
+
+
+</launch>
