@@ -15,13 +15,13 @@
     </include>
 
     
-    <arg name="x_pos" default="0"/>
-    <arg name="y_pos" default="0"/>
+    <arg name="x_pos" default="10"/>
+    <arg name="y_pos" default="-13"/>
     <arg name="z_pos" default="0.115"/>
     <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args=" -urdf -param robot_description -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -model dofbot" output="screen" respawn="false" />
 
     <node name="RSP" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
     <rosparam  file="$(find robotic-arm-refuelling)/config/joint_trajectory_controller.yaml"/>
-    <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="bazu_controller" />
+    <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
 
 </launch>
