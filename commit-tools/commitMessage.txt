@@ -1,0 +1,18 @@
+testing autocommitting
+
+changes since last commit :
+- new committing standard
+- world file finished
+- dofbot with male injector completed and placed 
+- joint trajectory controller implemented
+
+
+features pending :
+- car urdf modified with female component and visual odometry pattern
+- car controller
+- demo scripts for static refuelling with cvbridge
+- new car urdf with arm & male connector
+- demo scripts for dynamic refuelling
+- multidimensional synchronization for dynamic case (tbd) 
+
+current commit policy - commit to main
