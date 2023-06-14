@@ -1,4 +1,4 @@
-testing autocommitting
+first test preparation
 
 changes since last commit :
 - new committing standard
@@ -7,12 +7,25 @@ changes since last commit :
 - joint trajectory controller implemented
 
 
-features pending :
+near term features pending (deadline - 16th June, 2023) :
 - car urdf modified with female component and visual odometry pattern
 - car controller
 - demo scripts for static refuelling with cvbridge
 - new car urdf with arm & male connector
+- adjust inertia values for dofbot components
+- testing to collect data for static refuelling (write nodes)
+    - time for refuelling
+    - payload capacity
+    - end effector details
+    - arm velocity
+    - edge detections
+    - docking and undocking time
+    - alignment accuracy while docking (x, y, z)
+
+long term features pending :
 - demo scripts for dynamic refuelling
+- patent & publication writing
 - multidimensional synchronization for dynamic case (tbd) 
+- in-space arm docking (tbd)
 
 current commit policy - commit to main
