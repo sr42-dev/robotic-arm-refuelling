@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<launch>    
+    
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+        <arg name="world_name" value="$(find robotic-arm-refuelling)/worlds/city.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="0.1"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+
+    </include>
+
+    <arg name="arm_x_pos" default="10"/>
+    <arg name="arm_y_pos" default="-13"/>
+    <arg name="arm_z_pos" default="0.115"/>
+    
+    <arg name="car_x_pos" default="0"/>
+    <arg name="car_y_pos" default="0"/>
+    <arg name="car_z_pos" default="0.05"/>
+
+    <!-- arm -->
+
+    <group ns="arm">
+
+        <param name="robot_description" textfile="$(find robotic-arm-refuelling)/urdf/dofbot.urdf"/>
+        <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args=" -urdf -param robot_description -x $(arg arm_x_pos) -y $(arg arm_y_pos) -z $(arg arm_z_pos) -model dofbot" output="screen" respawn="false" />
+
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+        <rosparam  file="$(find robotic-arm-refuelling)/config/joint_trajectory_controller.yaml"/>
+        <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
+
+    </group>
+
+    <group ns="car">
+
+        <!-- urdf xml robot description loaded on the Parameter Server, converting the xacro into a proper urdf file-->
+        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/car/racecar.xacro'" />
+
+        <!-- push robot_description to factory and spawn robot in gazebo -->
+        <node name="racecar_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model racecar -z $(arg car_z_pos)" />
+
+    </group>
+
+</launch>
