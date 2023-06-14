@@ -1,4 +1,4 @@
-first test preparation
+car files imported, multi robot launch problems need fixing
 
 changes since last commit :
 - new committing standard
