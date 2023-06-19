@@ -1,0 +1,8 @@
+prefix=/home/sr42/catkin_ws/src/robotic-arm-refuelling/build/devel
+
+Name: robotic-arm-refuelling
+Description: Description of robotic-arm-refuelling
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

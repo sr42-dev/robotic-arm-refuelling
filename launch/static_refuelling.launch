@@ -21,25 +21,25 @@
     <arg name="car_z_pos" default="0.05"/>
 
     <!-- arm -->
-
     <group ns="arm">
+        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/arm/arm.urdf.xacro'"/>
 
-        <param name="robot_description" textfile="$(find robotic-arm-refuelling)/urdf/dofbot.urdf"/>
         <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args=" -urdf -param robot_description -x $(arg arm_x_pos) -y $(arg arm_y_pos) -z $(arg arm_z_pos) -model dofbot" output="screen" respawn="false" />
 
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
         <rosparam  file="$(find robotic-arm-refuelling)/config/joint_trajectory_controller.yaml"/>
-        <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
-
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
     </group>
-
+    
+    <!-- car -->
     <group ns="car">
-
-        <!-- urdf xml robot description loaded on the Parameter Server, converting the xacro into a proper urdf file-->
-        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/car/racecar.xacro'" />
-
-        <!-- push robot_description to factory and spawn robot in gazebo -->
-        <node name="racecar_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model racecar -z $(arg car_z_pos)" />
+        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/car/atom.xacro'"/>
+        <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model atom -x $(arg car_x_pos) -y $(arg car_y_pos) -z $(arg car_z_pos)"/>
+    
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+            <param name="use_gui" value="false"/>
+        </node>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
     </group>
 
