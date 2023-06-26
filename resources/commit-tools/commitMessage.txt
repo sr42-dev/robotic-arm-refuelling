@@ -1,13 +1,13 @@
-car files imported, multi robot launch problems need fixing
+arm and car spawned, camera plugin installed
 
 changes since last commit :
-- new committing standard
-- world file finished
-- dofbot with male injector completed and placed 
-- joint trajectory controller implemented
+- multi robot spawning fixed
+- camera plugin issues solved
+- camera aligned
 
 
 near term features pending (deadline - 16th June, 2023) :
+- inertia for dofbot to be tuned and/or new arm to be tuned and used
 - car urdf modified with female component and visual odometry pattern
 - car controller
 - demo scripts for static refuelling with cvbridge
