@@ -22,7 +22,7 @@
 
     <!-- arm -->
     <group ns="arm">
-        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/arm/arm.urdf.xacro'"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/arm/dofbot.urdf.xacro'"/>
 
         <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args=" -urdf -param robot_description -x $(arg arm_x_pos) -y $(arg arm_y_pos) -z $(arg arm_z_pos) -model dofbot" output="screen" respawn="false" />
 
