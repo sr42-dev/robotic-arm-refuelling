@@ -1,14 +1,12 @@
-arm and car spawned, camera plugin installed
+joint trajectory controller implemented for arm, car urdf modified with receptacle
 
 changes since last commit :
-- multi robot spawning fixed
-- camera plugin issues solved
-- camera aligned
-
+- joint trajectory controller for 5 dof arm completed
+- inertia new arm to be tuned and used
+- car urdf modified with female component and visual odometry pattern
 
 near term features pending (deadline - 16th June, 2023) :
-- inertia for dofbot to be tuned and/or new arm to be tuned and used
-- car urdf modified with female component and visual odometry pattern
+- inertia for dofbot to be tuned and used
 - car controller
 - demo scripts for static refuelling with cvbridge
 - new car urdf with arm & male connector
