@@ -1,13 +1,10 @@
-joint trajectory controller implemented for arm, car urdf modified with receptacle
+car controller implemented
 
 changes since last commit :
-- joint trajectory controller for 5 dof arm completed
-- inertia new arm to be tuned and used
-- car urdf modified with female component and visual odometry pattern
+- - car controller
 
 near term features pending (deadline - 16th June, 2023) :
 - inertia for dofbot to be tuned and used
-- car controller
 - demo scripts for static refuelling with cvbridge
 - new car urdf with arm & male connector
 - adjust inertia values for dofbot components
