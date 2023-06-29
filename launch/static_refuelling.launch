@@ -22,7 +22,7 @@
 
     <!-- arm -->
     <group ns="arm">
-        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/arm/dofbot.urdf.xacro'"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/arm/arm.urdf.xacro'"/>
 
         <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args=" -urdf -param robot_description -x $(arg arm_x_pos) -y $(arg arm_y_pos) -z $(arg arm_z_pos) -model dofbot" output="screen" respawn="false" />
 
@@ -33,7 +33,7 @@
     
     <!-- car -->
     <group ns="car">
-        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/car/atom.xacro'"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find robotic-arm-refuelling)/urdf/car/car.xacro'"/>
         <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model atom -x $(arg car_x_pos) -y $(arg car_y_pos) -z $(arg car_z_pos)"/>
     
         <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

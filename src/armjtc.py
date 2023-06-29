@@ -5,13 +5,13 @@ import sys
 
 def perform_trajectory():
     rospy.init_node('arm_trajectory_publisher')
-    contoller_topic='arm/arm_controller/command'
-    trajectory_publihser = rospy.Publisher(contoller_topic,JointTrajectory, queue_size=10)
+    contoller_name='/arm/arm_controller/command'
+    trajectory_publihser = rospy.Publisher(contoller_name,JointTrajectory, queue_size=10)
     argv = sys.argv[1:]                         
     arm_joints = ['joint1','joint2','joint3','joint4', 'joint5']
-    goal_positions = [ float(argv[0]) , float(argv[1]) , float(argv[2]) ,float(argv[3])  ]
+    goal_positions = [ float(argv[0]) , float(argv[1]) , float(argv[2]) ,float(argv[3]) ,float(argv[4])]
  
-    rospy.loginfo("Goal Position set")
+    rospy.loginfo("Goal Position set.")
     rospy.sleep(1)
 
 
