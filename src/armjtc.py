@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# testing script for the robotic arm's joint trajectory controller
+
 import rospy
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 import sys

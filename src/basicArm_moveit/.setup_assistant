@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: robotic-arm-refuelling
+    relative_path: urdf/arm/arm.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/arm.srdf
+  CONFIG:
+    author_name: sr42-dev
+    author_email: sriram.radhakrishna42@gmail.com
+    generated_timestamp: 1688540630

@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# keyboard controller for the car
+
 from __future__ import print_function
 
 import threading
